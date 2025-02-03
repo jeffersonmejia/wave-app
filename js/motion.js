@@ -65,4 +65,4 @@ d.addEventListener('click', (e) => {
 })
 setTimeout(()=>{
 d.title = 'Simulación: Onda en una cuerda'
-}, 6000)
+}, 4000)
