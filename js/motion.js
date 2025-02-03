@@ -63,3 +63,4 @@ d.addEventListener('DOMContentLoaded', (e) => {
 d.addEventListener('click', (e) => {
   e.stopPropagation()
 })
+d.title = 'Simulación: Onda en una cuerda'
