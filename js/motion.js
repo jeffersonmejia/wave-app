@@ -63,6 +63,6 @@ d.addEventListener('DOMContentLoaded', (e) => {
 d.addEventListener('click', (e) => {
   e.stopPropagation()
 })
-setTimeOut(()=>{
+setTimeout(()=>{
 d.title = 'Simulación: Onda en una cuerda'
 }, 6000)
