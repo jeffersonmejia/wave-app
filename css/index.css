@@ -55,6 +55,41 @@ main small {
 .sim-visible {
   display: block !important;
 }
+
+.simulation-description {
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  width: 40%;
+  font-size: 1.1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(61, 19, 61);
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  z-index: 999;
+  transform: translate(70%, 490%);
+  background-color: white;
+  border-radius: 4px;
+  color: rgb(50, 50, 50);
+  padding: 0.5rem;
+}
+
+.simulation-description-visible {
+  opacity: 1;
+}
+
 .hidden {
   display: none;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .hidden {
+    display: none;
+  }
+}
+
+@-moz-document url-prefix() {
+  .hidden {
+    display: none;
+  }
 }

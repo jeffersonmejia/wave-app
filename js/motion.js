@@ -21,18 +21,26 @@ function start() {
     $btnPauseInner = $btnContainer[435],
     $btnPlay = $btnContainer[448],
     $btnUpdate = $btnContainer[454],
-    $title = d.querySelector('.title-app')
+    $title = d.querySelector('.title-app'),
+    $simulationDescription = d.querySelector('.simulation-description')
 
-  $btnOptions.style.display = 'none'
-  $btnRestart.style.display = 'none'
-  $btnExtrems.style.display = 'none'
-  $btnTypes.style.display = 'none'
-  //$btnControl.style.display = 'none'
-  $btnPause.style.display = 'none'
-  $btnPlay.style.display = 'none'
-  $btnUpdate.style.display = 'none'
-  $btnPauseInner.style.display = 'none'
+  $wrench.classList.toggle('wrench')
+  console.log([$wrench])
+  const $btnsHidden = [
+    $btnOptions,
+    $btnRestart,
+    $btnExtrems,
+    $btnTypes,
+    $btnControl,
+    $btnPause,
+    $btnPlay,
+    $btnUpdate,
+    $btnPauseInner,
+  ]
 
+  $btnsHidden.forEach((btn) => {
+    btn.classList.toggle('hidden')
+  })
   $btnControl.parentElement.removeChild($btnControl)
   Array.from($balls).forEach((ball, index) => {
     if (index % 2 == 0) {
@@ -50,6 +58,7 @@ function start() {
   setTimeout(() => {
     $sim.classList.toggle('sim-visible')
     $title.classList.toggle('title-app-visible')
+    $simulationDescription.classList.toggle('simulation-description-visible')
   }, 3000)
 }
 
@@ -61,8 +70,10 @@ d.addEventListener('DOMContentLoaded', (e) => {
 })
 
 d.addEventListener('click', (e) => {
-  e.stopPropagation()
+  if (e.target.matches('.wrench')) {
+    console.log('clicked')
+  }
 })
-setTimeout(()=>{
-d.title = 'Simulación: Onda en una cuerda'
+setTimeout(() => {
+  d.title = 'Simulación: Onda en una cuerda'
 }, 4000)
