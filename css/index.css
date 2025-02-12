@@ -67,7 +67,7 @@ main small {
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
   z-index: 999;
-  transform: translate(70%, 490%);
+  transform: translate(70%, 900%);
   background-color: white;
   border-radius: 4px;
   color: rgb(50, 50, 50);
