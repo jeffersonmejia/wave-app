@@ -1,5 +1,6 @@
 const d = document,
   $main = d.querySelector('main')
+let $simulationBtnDescription, $simulationDescription
 
 function start() {
   let $sim = d.getElementById('sim'),
@@ -21,17 +22,18 @@ function start() {
     $btnPauseInner = $btnContainer[435],
     $btnPlay = $btnContainer[448],
     $btnUpdate = $btnContainer[454],
-    $title = d.querySelector('.title-app'),
-    $simulationDescription = d.querySelector('.simulation-description')
+    $title = d.querySelector('.title-app')
+
+  $simulationDescription = d.querySelector('.container-description-content')
+  $simulationBtnDescription = d.querySelector('.container-description-button')
 
   $wrench.classList.toggle('wrench')
-  console.log([$wrench])
   const $btnsHidden = [
-    $btnOptions,
+    //   $btnOptions,
     $btnRestart,
     $btnExtrems,
     $btnTypes,
-    $btnControl,
+    //$btnControl,
     $btnPause,
     $btnPlay,
     $btnUpdate,
@@ -58,7 +60,9 @@ function start() {
   setTimeout(() => {
     $sim.classList.toggle('sim-visible')
     $title.classList.toggle('title-app-visible')
-    $simulationDescription.classList.toggle('simulation-description-visible')
+    $simulationBtnDescription.classList.toggle('hidden')
+
+    // $simulationDescription.classList.toggle('simulation-description-visible')
   }, 3000)
 }
 
@@ -70,8 +74,31 @@ d.addEventListener('DOMContentLoaded', (e) => {
 })
 
 d.addEventListener('click', (e) => {
-  if (e.target.matches('.wrench')) {
-    console.log('clicked')
+  if (
+    e.target.matches('.container-description-button button') ||
+    e.target.matches('.container-description-button small')
+  ) {
+    $simulationBtnDescription.classList.toggle('hidden')
+    // $simulationDescription.classList.toggle('hidden')
+    $simulationDescription.classList.toggle(
+      'container-description-content-translated-left'
+    )
+    $simulationDescription.classList.toggle(
+      'container-description-content-translated-right'
+    )
+  }
+  if (
+    e.target.matches('.container-description-content button') ||
+    e.target.matches('.container-description-content button small')
+  ) {
+    $simulationBtnDescription.classList.toggle('hidden')
+    // $simulationDescription.classList.toggle('hidden')
+    $simulationDescription.classList.toggle(
+      'container-description-content-translated-left'
+    )
+    $simulationDescription.classList.toggle(
+      'container-description-content-translated-right'
+    )
   }
 })
 setTimeout(() => {
