@@ -27,6 +27,34 @@ function start() {
   $simulationDescription = d.querySelector('.container-description-content')
   $simulationBtnDescription = d.querySelector('.container-description-button')
 
+  ///DATOS EJERCICIO
+    const A = 1.5;
+    const k = 0.1257;
+    const omega = 12.57;
+    const length = 100;
+    const points = 50;
+    const timeSteps = 100;
+    const dt = 0.01;
+  
+function simulateWave() {
+    const waveFunction = function(x, t) {
+        return A * Math.sin(k * x) * Math.cos(omega * t);
+    };
+
+    for (let t = 0; t < timeSteps; t++) {
+        let positions = [];
+        
+        for (let i = 0; i <= points; i++) {
+            let x = (i / points) * length;
+            let y = waveFunction(x, t * dt);
+            positions.push({ x, y });
+        }
+
+        console.log(`Tiempo ${t * dt} s:`, positions);
+    }
+}
+
+  
   $wrench.classList.toggle('wrench')
   const $btnsHidden = [
     //   $btnOptions,
